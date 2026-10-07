@@ -46,7 +46,7 @@ Most business cases are a spreadsheet nobody trusts. They hold a single NPV, ass
 - Green Book discount rate (3.5%), optimism bias on costs and benefits, and an extra delivery-risk uplift per option.
 - Value-for-money bands (Poor / Low / Medium / High / Very high) used across UK government.
 - Tornado chart showing which estimate the answer depends on most, plus pessimistic / base / optimistic scenarios and break-even headroom.
-- Save and load a case as JSON.
+- Save and load a case as JSON. The [Process Improvement Lab](https://github.com/Divyaprakash-SM/process-improvement-lab) exports in this format, so process savings measured from real event data load straight in as an investment option.
 
 **Risk simulation (Monte Carlo)**
 - Costs, benefits and benefit start dates become lopsided ranges, because real projects overrun far more than they underrun.
@@ -120,7 +120,6 @@ business-case-builder/
 [share.streamlit.io](https://share.streamlit.io) → **Create app** → pick this repo, branch `main`, file `app.py` → **Deploy**.
 
 ## Roadmap
-- Link to the [Process Improvement Lab](https://github.com/Divyaprakash-SM/process-improvement-lab): feed measured process savings straight in as benefits
 - Non-monetised benefits scoring (multi-criteria analysis)
 - Real-terms (inflation-adjusted) appraisal
 

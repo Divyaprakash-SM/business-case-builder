@@ -18,6 +18,19 @@ st.set_page_config(page_title="Business Case Builder", page_icon="💷", layout=
 st.markdown(CSS, unsafe_allow_html=True)
 init_state()
 
+def load_case() -> None:
+    """Runs as a callback, before any widget is drawn, so the sidebar sliders can be updated."""
+    up = st.session_state.get("case_upload")
+    if up is None:
+        return
+    data = json.load(up)
+    st.session_state.title = data["title"]
+    for k, v in data["assumptions"].items():
+        st.session_state[f"a_{k}"] = v
+    st.session_state.options_df = pd.DataFrame(data["options"])
+    st.session_state.editor_version = st.session_state.get("editor_version", 0) + 1
+
+
 pages = st.navigation([
     st.Page("views/appraisal.py", title="Options appraisal", icon="⚖️", default=True),
     st.Page("views/risk.py", title="Risk simulation", icon="🎲"),
@@ -44,15 +57,7 @@ with st.sidebar:
                 "options": st.session_state.options_df.to_dict("records")}
         st.download_button("Download case (JSON)", json.dumps(case, indent=2, default=float), "business_case.json",
                            "application/json", use_container_width=True)
-        up = st.file_uploader("Load a saved case", type="json", label_visibility="collapsed")
-        if up is not None and st.session_state.get("_loaded") != up.file_id:
-            data = json.load(up)
-            st.session_state.title = data["title"]
-            for k, v in data["assumptions"].items():
-                st.session_state[f"a_{k}"] = v
-            st.session_state.options_df = pd.DataFrame(data["options"])
-            st.session_state.editor_version = st.session_state.get("editor_version", 0) + 1
-            st.session_state._loaded = up.file_id
-            st.rerun()
+        st.file_uploader("Load a saved case (also accepts exports from the Process Improvement Lab)", type="json",
+                         key="case_upload", on_change=load_case)
 
 pages.run()

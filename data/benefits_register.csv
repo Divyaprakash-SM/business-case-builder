@@ -1,0 +1,4 @@
+benefit_id,benefit,type,owner,measure,annual_target_gbp
+B1,PMO reporting time saved,Non-cashable (efficiency),Head of PMO,Analyst days per month spent compiling reports,95000
+B2,Contractor report production removed,Cashable,Finance Business Partner,Contractor invoices for reporting support,40000
+B3,Fewer late change requests,Cost avoidance,Programme Director,"Change requests raised after stage gate, x average cost",30000

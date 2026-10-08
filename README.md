@@ -1,5 +1,7 @@
 # Business Case Builder
 
+**▶ Live app: [businesscase-dsmk.streamlit.app](https://businesscase-dsmk.streamlit.app)** · no install needed
+
 **From "should we invest?" to "did it pay off?": the whole lifecycle of a business case in one tool.**
 
 Most business cases are a spreadsheet nobody trusts. They hold a single NPV, assume everything goes to plan, and are never looked at again once approved. This app does what a finance director, a PMO lead or HM Treasury reviewer actually asks for:
